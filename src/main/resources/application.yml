@@ -1,0 +1,22 @@
+server:
+  port: 8899
+secrets:
+  keys: happyjunny
+  time: 30*60*1000
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://152.69.226.103:5432/mydb
+    username: junny
+    password: 1234
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    generate-ddl: true
+    show-sql: true
+
+    hibernate:
+      ddl-auto: create
+    database: postgresql
