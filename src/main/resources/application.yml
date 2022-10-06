@@ -1,6 +1,6 @@
 secrets:
-  keys: happyjunny
-  time: 30*60*1000
+  keys: happyjunnyhappyjunnyhappyjunny
+  time: 180000
 spring:
   profiles:
     active: dev

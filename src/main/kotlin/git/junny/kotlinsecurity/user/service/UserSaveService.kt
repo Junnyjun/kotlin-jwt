@@ -11,7 +11,7 @@ class UserSaveService(
 ) {
 
     @Transactional
-    fun saveUser(user: Users) {
-        userRepository.save(user)
+    fun saveUser(user: Users, newPw: String) {
+        userRepository.save(user.encode(newPw))
     }
 }

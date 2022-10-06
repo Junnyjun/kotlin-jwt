@@ -5,6 +5,6 @@ import javax.servlet.http.HttpServletRequest
 
 @Component
 class JwtTokenByRequest {
-    fun resolveToken(request: HttpServletRequest) = request.getHeader("Authorization") ?.let { "" }
+    fun resolveToken(request: HttpServletRequest) = request.getHeader("Authorization") ?: ""
 
 }

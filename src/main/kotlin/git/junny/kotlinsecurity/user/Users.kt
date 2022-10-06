@@ -27,7 +27,7 @@ class Users(
     val userPw: String = userPw
 
     @Column(nullable = false)
-    val roles: Role = roles
+    var roles: Role = roles
 
     override fun getAuthorities(): MutableCollection<out GrantedAuthority>? {
         return mutableListOf(SimpleGrantedAuthority(roles.name));
@@ -57,7 +57,12 @@ class Users(
         return true
     }
 
+    fun encode(newPw: String): Users {
+        return Users(username, email, newPw, roles)
+    }
+
+
     enum class Role {
-        USER, ADMIN
+        USER, ADMIN;
     }
 }

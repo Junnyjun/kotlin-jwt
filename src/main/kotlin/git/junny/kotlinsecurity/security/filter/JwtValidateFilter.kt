@@ -21,10 +21,6 @@ class JwtValidateFilter(
             val authentication = jwtAuthenticate.decode(token)
             SecurityContextHolder.getContext().authentication = authentication
         }
-        if (token != null && jwtToken.validate(token)) {
-            val authentication = jwtAuthenticate.decode(token)
-            SecurityContextHolder.getContext().authentication = authentication
-        }
         chain?.doFilter(request, response)
     }
 }
