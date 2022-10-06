@@ -12,17 +12,16 @@ import java.util.*
 class JwtToken(
     private val userDetailsService: UserDetailsService,
     private val userClaimService: UserClaimsService,
-    @Value("\${secrets.keys}") private var secretKey: String,
+    @Value("\${secrets.keys}") private val secretKey: String,
     @Value("\${secrets.time}") private val expiredTime: Long,
 ) {
-    val encodedKey: String = "base64:${Base64.getEncoder().encodeToString(secretKey.toByteArray())}"
 
     fun createToken(username : String) :String{
         return Jwts.builder()
             .setClaims(userClaimService.toClaims(username))
             .setIssuedAt(Date())
             .setExpiration(Date(Date().time + expiredTime.toLong()))
-            .signWith(SignatureAlgorithm.HS256, encodedKey)
+            .signWith(SignatureAlgorithm.HS256, secretKey)
             .compact()
     }
     fun validate(jwtToken: String): Boolean {
