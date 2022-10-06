@@ -1,5 +1,3 @@
-server:
-  port: 8899
 secrets:
   keys: happyjunny
   time: 30*60*1000
@@ -20,3 +18,8 @@ spring:
     hibernate:
       ddl-auto: create
     database: postgresql
+
+logging:
+  level:
+    web: trace
+    sql: trace

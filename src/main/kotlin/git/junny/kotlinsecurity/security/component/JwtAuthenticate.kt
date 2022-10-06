@@ -1,4 +1,4 @@
-package git.junny.kotlinsecurity.security
+package git.junny.kotlinsecurity.security.component
 
 import git.junny.kotlinsecurity.user.service.UserFindService
 import io.jsonwebtoken.Jwts

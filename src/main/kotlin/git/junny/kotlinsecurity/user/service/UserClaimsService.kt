@@ -11,7 +11,8 @@ class UserClaimsService(private val userRepository: UserRepository) {
         val users = userRepository.findByUsername(username)
             ?: error("User not found")
 
-        return Jwts.claims().setSubject(users.id.toString())
+        return Jwts.claims()
+            .setSubject(users.id.toString())
             .apply {
                 this["roles"] = users.roles
                 this["userId"] = users.id

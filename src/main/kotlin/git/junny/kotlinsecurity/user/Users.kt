@@ -8,17 +8,17 @@ import javax.persistence.*
 
 @Entity
 class Users(
-    name: String,
+    username: String,
     email: String,
     userPw: String,
     roles: Role
-) : BaseTime(), UserDetails {
+) :  UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = 0
 
-    @Column(nullable = false)
-    val name: String = name
+    @Column(unique = true)
+    private val username: String = username
 
     @Column(nullable = false, unique = true)
     val email: String = email
