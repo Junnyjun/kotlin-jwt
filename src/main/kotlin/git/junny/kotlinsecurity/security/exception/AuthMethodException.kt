@@ -4,4 +4,6 @@ import org.springframework.security.authentication.AuthenticationServiceExceptio
 
 class AuthMethodException(msg: String): AuthenticationServiceException(msg) {
 
+
+
 }
